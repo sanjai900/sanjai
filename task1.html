@@ -1,28 +1,26 @@
-<html>
-<html lang="en" ng-app="taskApp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List Manager</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div ng-controller="TaskController as taskCtrl" class="task-container">
-        <h1>Task List Manager</h1>
-        <form ng-submit="taskCtrl.addTask()">
-            <input type="text" ng-model="taskCtrl.newTask" placeholder="Add new task" required>
-            <button type="submit">Add Task</button>
-        </form>
-        <ul>
-            <li ng-repeat="task in taskCtrl.tasks">
-                <span>{{task}}</span>
-                <button ng-click="taskCtrl.editTask($index)">Edit</button>
-                <button ng-click="taskCtrl.deleteTask($index)">Delete</button>
-            </li>
-        </ul>
-    </div>
+angular.module('imageGalleryApp', [])
+  .controller('ImageGalleryController', function() {
+    var vm = this;
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+    vm.images = [
+      {
+        src: 'image1.jpg',
+        alt: 'Image 1',
+        description: 'Description for Image 1'
+      },
+      {
+        src: 'image2.jpg',
+        alt: 'Image 2',
+        description: 'Description for Image 2'
+      },
+      {
+        src: 'image3.jpg',
+        alt: 'Image 3',
+        description: 'Description for Image 3'
+      }
+    ];
+
+    vm.showDetails = function(image) {
+      vm.selectedImage = image;
+    };
+  });
