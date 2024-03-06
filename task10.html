@@ -1,0 +1,28 @@
+<html>
+<html lang="en" ng-app="analyticsApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Analytics</title>
+  <link rel="stylesheet" href="task102.css">
+</head>
+<body>
+  <div ng-controller="DashboardController as dashboardCtrl">
+    <h1>Dashboard Analytics</h1>
+    <div class="charts-container">
+      <div class="chart">
+        <h2>Revenue</h2>
+        <canvas id="revenueChart" width="400" height="300"></canvas>
+      </div>
+      <div class="chart">
+        <h2>Users</h2>
+        <canvas id="usersChart" width="400" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="task103.js"></script>
+</body>
+</html>
