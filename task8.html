@@ -1,0 +1,27 @@
+<html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated To-Do List</title>
+  <link rel="stylesheet" href="task82.css">
+</head>
+<body>
+  <div ng-controller="TodoController as todoCtrl">
+    <h1>To-Do List</h1>
+    <div class="input-container">
+      <input type="text" ng-model="todoCtrl.newTask" placeholder="Add a new task">
+      <button ng-click="todoCtrl.addTask()">Add</button>
+    </div>
+    <ul class="todo-list">
+      <li ng-repeat="task in todoCtrl.tasks" ng-animate="'animate-task'" class="task">
+        <span>{{ task }}</span>
+        <button ng-click="todoCtrl.removeTask($index)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="task83.js"></script>
+</body>
+</html>
