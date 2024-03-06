@@ -1,0 +1,38 @@
+<html>
+<html lang="en" ng-app="productCatalogApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog with Filters</title>
+  <link rel="stylesheet" href="task72.css">
+</head>
+<body>
+  <div ng-controller="ProductCatalogController as catalogCtrl">
+    <h1>Product Catalog</h1>
+    <div class="filters">
+      <h2>Filters:</h2>
+      <label>Category:</label>
+      <select ng-model="catalogCtrl.selectedCategory" ng-change="catalogCtrl.filterProducts()">
+        <option value="">All</option>
+        <option ng-repeat="category in catalogCtrl.categories" value="{{ category }}">{{ category }}</option>
+      </select>
+      <label>Feature:</label>
+      <select ng-model="catalogCtrl.selectedFeature" ng-change="catalogCtrl.filterProducts()">
+        <option value="">All</option>
+        <option ng-repeat="feature in catalogCtrl.features" value="{{ feature }}">{{ feature }}</option>
+      </select>
+    </div>
+    <div class="products">
+      <div class="product" ng-repeat="product in catalogCtrl.filteredProducts">
+        <h2>{{ product.name }}</h2>
+        <p>Category: {{ product.category }}</p>
+        <p>Price: {{ product.price }}</p>
+        <p>Features: {{ product.features.join(', ') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="task73.js"></script>
+</body>
+</html>
